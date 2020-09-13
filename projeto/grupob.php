@@ -8,23 +8,24 @@
         
         $(document).ready(function(){
             $("input").keyup(function(){
+                console.log($("input").val());
                 
-                var cidade =  $("input").val();
-                cidade = cidade.toUpperCase();
+                var cid = $("input").val();
+                cid = cid.toUpperCase();
 
-                if(cidade.length == 1){
-                    $("#tabela").html("<tr><td>Digite ao menos 2 caracteres para a sua busca.</td></tr>");
+                if(cid.length == 1){
+                    $("#t").html("<tr><td>Digite ao menos 2 caracteres para a sua busca.</td></tr>");
                 }
-                if(cidade.length > 1){
-                    $("#tabela").html("");
-                    var tabela = "";
-                    tabela = $("#tabela").html();
+                if(cid.length > 1){
+                    $("#t").html("");
+                    var t = "";
+                    t = $("#t").html();
                     $.getJSON("https://servicodados.ibge.gov.br/api/v1/localidades/distritos", function(d){
                         $.each(d, function(i, f){
                             r = f.nome.toUpperCase();
-                            if(r.indexOf(cidade) > -1){
-                                tabela += "<tr><td>"+r+"</td><td>"+f.municipio.microrregiao.mesorregiao.UF.sigla+"</td></tr>";
-                                $("#tabela").html(tabela);
+                            if(r.indexOf(cid) > -1){
+                                t += "<tr><td>"+r+"</td><td>"+f.municipio.microrregiao.mesorregiao.UF.sigla+"</td></tr>";
+                                $("#t").html(t);
                             }
                         });
                     });
@@ -34,8 +35,8 @@
         </script>
     </head>
     <body>
-        <input type="text" name="cidade" id="cidade" placeholder="Digite a cidade a procurar..."/>
-        <table id="tabela" border="1">
+        <input type="text" name="cid" id="cid" placeholder="Digite a cidade a procurar..."/>
+        <table id="t" border="1">
             <tr>
                 <td>Digite o nome da cidade que deseja procurar informações</td>
             </tr>
