@@ -13,6 +13,8 @@
     <a href='20200811/ex.php'>Atividade 1 |</a>
     <a href='2020.08.19/index.php'>Atividade 2 |</a>
     <a href='20200826/index.php'>Atividade 3 |</a>
-    <a href='20200826.individual/exe_ajax.php'>Atividade 4</a>
+    <a href='20200826.individual/exe_ajax.php'>Atividade 4 |</a>
+    <a href='20200916/form.php'>Atividade 5 |</a>
+    <a href='projeto/grupob.php'>Atividade 6 |</a>
 </body>
 </html>
