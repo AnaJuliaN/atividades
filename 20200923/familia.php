@@ -3,6 +3,7 @@
         include "conexao.php";
         $select="SELECT * FROM familia ORDER BY nome";
         $res=mysqli_query($con, $select);
+        
         while($linha=mysqli_fetch_assoc($res)){
             echo "<tr>";
             echo"<td>".$linha["nome"]."</td>";

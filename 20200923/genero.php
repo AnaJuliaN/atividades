@@ -3,6 +3,7 @@
         include "conexao.php";
         $select="SELECT genero.nome_cientifico as nome_cientifico_genero, familia.nome_cientifico as nome_cientifico_familia FROM genero INNER JOIN familia ON genero.cod_familia=familia.id_familia ORDER BY nome_cientifico_genero, nome_cientifico_familia ";
         $res=mysqli_query($con, $select);
+        
         while($linha=mysqli_fetch_assoc($res)){
             echo "<tr>";
             echo"<td>".$linha["nome_cientifico_genero"]."</td>"; // Nome cientifico
