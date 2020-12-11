@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 01-Dez-2020 às 20:27
+-- Data de Criação: 09-Dez-2020 às 22:57
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -97,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) COLLATE ucs2_bin NOT NULL,
   `senha` char(32) COLLATE ucs2_bin NOT NULL,
+  `permissao` varchar(11) COLLATE ucs2_bin NOT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=ucs2 COLLATE=ucs2_bin AUTO_INCREMENT=2 ;
@@ -105,8 +106,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `email`, `senha`) VALUES
-(1, 'admin@sistema.com', '12345');
+INSERT INTO `usuario` (`id_usuario`, `email`, `senha`, `permissao`) VALUES
+(1, 'admin@sistema.com', '827ccb0eea8a706c4c34a16891f84e7b', '');
 
 --
 -- Constraints for dumped tables
