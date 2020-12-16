@@ -14,8 +14,7 @@
     $insert = "INSERT INTO cor(
                                     nome
                                 ) VALUES (
-                                    '$cor',
-                                    '1'
+                                    '$cor'
                                 )";
     mysqli_query($conexao, $insert)
      or die(mysqli_error($conexao));

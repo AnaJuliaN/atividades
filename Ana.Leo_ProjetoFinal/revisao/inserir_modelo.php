@@ -16,8 +16,7 @@
         $insert = "INSERT INTO modelo(
                                        nome                                   
                                     ) VALUES (
-                                        '$modelo',
-                                        '1'
+                                        '$modelo'
                                     )";
         mysqli_query($conexao, $insert)
         or die(mysqli_error($conexao));

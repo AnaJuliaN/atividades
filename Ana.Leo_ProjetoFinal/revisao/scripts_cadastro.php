@@ -65,14 +65,17 @@
         $.get("seleciona_cadastro.php",function(r){
             t = "";
             console.log(r);
-            $.each(r,function(i,a){ 
-                                
+            $.each(r,function(i,a){                   
                 t += "<tr>";
                 t +=    "<td>"+a.nome+"</td>";
                 t +=    "<td>"+a.email+"</td>";
                 t +=    "<td>";
                 t +=        "<button class='btn btn-warning alterar' value='"+a.id_usuario+"' data-toggle='modal' data-target='#modal'>Alterar</button>";
-                t +=        " <button class='btn btn-danger remover' value='"+a.id_usuario+"'>Remover</button>";
+        <?php 
+        if(isset($_SESSION["permissao"]) && $_SESSION["permissao"]=="1"){
+            echo "t +=        \" <button class='btn btn-danger remover' value='\"+a.id_usuario+\"'>Remover</button>\";";
+        }
+        ?>
                 t +=    "</td>";
                 t += "</tr>";
             });            
@@ -84,5 +87,6 @@
     });
 
 </script>
+
 
 

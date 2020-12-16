@@ -7,18 +7,19 @@
 
 
 echo "
-    <h3>Escolha e Compre</h3>
+    <h3>Minhas Compras</h3>
     <div id='msg'></div>
     <table>
         <tr>
             <th>Instrumento</th>
             <th>Modelo</th>
             <th>Cor</th>
+            <th>Preço</th>
         </tr>";
 
 include "conexao.php";
 
-$select="SELECT instrumento.nome AS instrumento, cor.nome AS cor, modelo.nome AS modelo 
+$select="SELECT preco, instrumento.nome AS instrumento, cor.nome AS cor, modelo.nome AS modelo 
             FROM compra INNER JOIN instrumento ON 
                 compra.cod_instrumento = instrumento.id_instrumento
                 INNER JOIN cor ON
@@ -57,6 +58,7 @@ while($linha=mysqli_fetch_assoc($res)){
             <td>".$linha["instrumento"]."</td>
             <td>".$linha["modelo"]."</td>
             <td>".$linha["cor"]."</td>
+            <td>".$linha["preco"]."</td>
     </tr>";
     $i++;
 }

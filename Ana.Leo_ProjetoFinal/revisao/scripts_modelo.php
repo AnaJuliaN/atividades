@@ -8,11 +8,10 @@
 
             i = $(this).val();
             
-            $.get("seleciona_cor.php?id="+i,function(r){
-                a = r[0];
-                console.log(r);
-                $("input[name='nome']").val(a.nome);                               
-                $("input[name='id_cor']").val(a.id_cor);
+            $.get("seleciona_modelo.php?id="+i,function(r){
+                a = r[0];                               
+                $("input[name='nome']").val(a.nome);
+                $("input[name='id_modelo']").val(a.id_modelo);
 
             });
         });
@@ -20,15 +19,18 @@
         $(".remover").click(function(){
          
            i = $(this).val();
-           c = "cor.nome";
-           t = "cor";
+           c = "id_modelo";
+           t = "modelo";
            p = {tabela: t, id:i, coluna:c}
            console.log(p);
            $.post("remover.php",p,function(r){
-               
+            console.log(r);
             if(r=='1'){                
-                $("#msg").html("Cor removida com sucesso.");
+                $("#msg").html("Modelo removido com sucesso.");
                 $("button[value='"+ i +"']").closest("tr").remove();
+            }
+            else{
+                $("#msg").html("Este modelo não pode ser removido. Já existe um instrumento cadastrado para ele.");
             }
            });
        }); 
@@ -39,34 +41,34 @@
 
        $(".salvar").click(function(){ 
            p = {
-                cor:$("input[name='nome']").val(),
-                id_cor:$("input[name='id_cor']").val(),
+                modelo:$("input[name='nome']").val(),
+                id_modelo:$("input[name='id_modelo']").val(),
            };        
            
-           $.post("atualizar_cor.php",p,function(r){
+           $.post("atualizar_modelo.php",p,function(r){
             if(r=='1'){
-                $("#msg").html("Cor alterada com sucesso.");
+                $("#msg").html("Modelo alterado com sucesso.");
                 $(".close").click();
                 atualizar_tabela();                
             }else{
-                $("#msg").html("Falha ao atualizar cor.");
+                $("#msg").html("Falha ao atualizar modelo.");
             }
            });
        }); 
 
        function atualizar_tabela(){           
-        $.get("seleciona_cor.php",function(r){
+        $.get("seleciona_modelo.php",function(r){
             t = "";
             $.each(r,function(i,a){                 
                 t += "<tr>";
                 t +=    "<td>"+a.nome+"</td>";
                 t +=    "<td>";
-                t +=        "<button class='btn btn-warning alterar' value='"+a.id_cor+"' data-toggle='modal' data-target='#modal'>Alterar</button>";
-                t +=        " <button class='btn btn-danger remover' value='"+a.id_cor+"'>Remover</button>";
+                t +=        "<button class='btn btn-warning alterar' value='"+a.id_modelo+"' data-toggle='modal' data-target='#modal'>Alterar</button>";
+                t +=        " <button class='btn btn-danger remover' value='"+a.id_modelo+"'>Remover</button>";
                 t +=    "</td>";
                 t += "</tr>";
             });            
-            $("#tbody_cor").html(t);
+            $("#tbody_modelo").html(t);
             define_alterar_remover();
         });
         }
@@ -74,6 +76,7 @@
     });
 
 </script>
+
 
 
 

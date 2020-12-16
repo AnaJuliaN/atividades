@@ -1,8 +1,8 @@
 <?php
 include "conf.php";
 
-cabecalho();
 
+cabecalho();
 
 echo "
     <h3>Dados</h3>

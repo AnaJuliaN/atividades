@@ -14,11 +14,12 @@ echo "
             <th>Instrumento</th>
             <th>Modelo</th>
             <th>Cor</th>
+            <th>Preço</th>
             <th>Ação</th>
         </tr>";
 
 
-$select="SELECT instrumento.nome AS instrumento, cor.nome AS nome_cor, modelo.nome AS nome_modelo, instrumento.id_instrumento AS id_instrumento
+$select="SELECT preco, instrumento.nome AS instrumento, cor.nome AS nome_cor, modelo.nome AS nome_modelo, instrumento.id_instrumento AS id_instrumento
 FROM instrumento
 INNER JOIN cor ON instrumento.cod_cor = cor.id_cor
 INNER JOIN modelo ON instrumento.cod_modelo = modelo.id_modelo";
@@ -53,6 +54,7 @@ while($linha=mysqli_fetch_assoc($res)){
             <td>".$linha["instrumento"]."</td>
             <td>".$linha["nome_modelo"]."</td>
             <td>".$linha["nome_cor"]."</td>
+            <td>".$linha["preco"]."</td>
             <td>";
             if($_SESSION["permissao"]=="2"){
                 echo "<form action='inserir_compras.php' method='post'>";

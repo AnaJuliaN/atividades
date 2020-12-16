@@ -59,12 +59,10 @@ while($linha=mysqli_fetch_assoc($res)){
     echo "<tr>
             <td>".$linha["nome"]."</td>
             <td>
-                <button class='btn btn-warning alterar' value='".$linha["nome"]."' data-toggle='modal' 
-                    data-target='#modal'>Alterar</button>";
-                    if($_SESSION["permissao"]=="1"){    
-                    echo"<button class='btn btn-danger remover' value='".$linha["nome"]."'>Remover</button>";
-                    }                       
-            echo "</td>
+                <button class='btn btn-warning alterar' value='".$linha["id_modelo"]."' data-toggle='modal' 
+                    data-target='#modal'>Alterar</button>
+                <button class='btn btn-danger remover' value='".$linha["id_modelo"]."'>Remover</button>                    
+            </td>
     </tr>";
     $i++;
 }

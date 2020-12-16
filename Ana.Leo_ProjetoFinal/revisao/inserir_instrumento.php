@@ -14,7 +14,7 @@
     $cor = $_POST["cor"];
     $modelo = $_POST["modelo"];
     $preco = $_POST["preco"];
-    
+
     $insert = "INSERT INTO instrumento(
                                     nome,
                                     cod_cor,

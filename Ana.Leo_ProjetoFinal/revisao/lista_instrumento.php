@@ -33,7 +33,9 @@
 <?php
 include "conf.php";
 
+
 cabecalho();
+
 
 include "script_remover_instrumento.php";
 
@@ -132,11 +134,9 @@ while($linha=mysqli_fetch_assoc($res)){
             <td>".$linha["preco"]."</td>
             <td>
                 <button class='btn btn-warning alterar' value='".$linha["id_instrumento"]."' data-toggle='modal' 
-                    data-target='#modal'>Alterar</button>";
-                    if($_SESSION["permissao"]=="1"){    
-                    echo "<button class='btn btn-danger remover' value='".$linha["id_instrumento"]."'>Remover</button>";                       
-                    }
-            echo"</td>
+                    data-target='#modal'>Alterar</button>   
+                <button class='btn btn-danger remover' value='".$linha["id_instrumento"]."'>Remover</button>                      
+            </td>
     </tr>";
     $i++;
 }

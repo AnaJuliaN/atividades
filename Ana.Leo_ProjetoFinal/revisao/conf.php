@@ -7,8 +7,6 @@
                     "modelo"=>"Modelo do instrumento",            
                     "cor"=>"Cor do instrumento",
                     "instrumento"=>"Instrumentos",
-                    "dados"=>"Meus Dados",
-                    "produtos"=>"Lista Produtos",
                 );
 
     include "cabecalho.php";
