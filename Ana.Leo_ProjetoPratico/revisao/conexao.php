@@ -2,7 +2,7 @@
 
 
 $host = "localhost";
-$db = "instrumentosmusicais";
+$db = "instrumentos";
 $user = "root";
 $senha = "usbw";
 
