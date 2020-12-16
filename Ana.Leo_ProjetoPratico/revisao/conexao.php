@@ -1,10 +1,10 @@
 <?php
 
 
-$host = "localhost";
+$host = "db4free.net";
 $db = "instrumentos";
-$user = "root";
-$senha = "usbw";
+$user = "ana_julia";
+$senha = "3306";
 
 $conexao = @mysqli_connect($host,$user,$senha,$db) 
     or die("Erro ao abrir a conexão com o banco de dados.");
