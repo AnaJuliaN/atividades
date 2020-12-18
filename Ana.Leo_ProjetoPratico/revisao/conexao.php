@@ -1,14 +1,14 @@
 <?php
-
-
-$host = "db4free.net";
-$port = "3306";
-$db = "instrumentos";
+$host = "db4free.net:3306";
 $user = "ana_julia";
 $senha = "a738bc27f";
+$bd = "intrumentos";
 
-$conexao = @mysqli_connect($host,$user,$senha,$db,$port) 
-    or die("Erro ao abrir a conexão com o banco de dados.");
 
+	$conexao = mysqli_connect($host, $user, $senha, $bd) 
+		or die("erro conexao");
+	
 mysqli_set_charset($conexao, "utf8");
+
+
 ?>
